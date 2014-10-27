@@ -1,0 +1,39 @@
+.poptart
+  .card
+    background: white
+    border: 1px solid $lightUI-borderDark
+    margin-bottom: 20px
+    +border-radius(4px)
+    .cardHeader
+      font-size: 11px
+      border-bottom: 1px solid $lightUI-borderDark
+      padding: 15px 10px
+      text-transform: uppercase
+      +border-radius(4px 4px 0 0)
+      +flexbox
+      p
+        margin: 0
+        +flexboxItem
+      a
+        color: #a6aeb1
+    .cardContent
+      padding: 10px
+      .subHeader
+        font-weight: 100
+        text-transform: uppercase
+        border: 1px solid #c3c9ce
+        border-width: 1px 0 1px 0
+        +flexbox
+        .subHeaderItem
+          +flexboxItem
+          width: 50%
+
+    &:target
+      border-color: #4695be
+      .cardHeader
+        color: #447586
+        background: #eef5f8
+        border-color: #4695be
+        a
+          color: #93b0bd
+// Card group

@@ -1,0 +1,11 @@
+include ../partials/header
+section
+  .row
+    .col-1-2.colCentered
+      form(method='post' action='/login')
+        p
+          input(type='text' name='username' placeholder='username' autofocus)
+        p
+          input(type='text' name='password' placeholder='password')
+        p
+          input(type='submit' value='login')

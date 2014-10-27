@@ -1,0 +1,112 @@
+@import "_settings";
+@import "_mixins";
+
+
+//@import "_grid"
+@import "_reset";
+@import "_grid";
+
+@import "./components/_buttons";
+@import "./components/_cards";
+
+body.poptart
+  font-size: $font-size
+  margin: 0
+  padding: 0
+  font-family: 'Open Sans', sans-serif
+  letter-spacing: 1px
+
+  header
+    background: $header-background
+    padding: 20px
+    +flexbox
+    .logo
+      margin: 0
+      font-size: 14px
+      +flexboxItem
+      .tagline
+        font-size: 12px
+        font-weight: 200
+        color: #858585
+        margin-left: 10px
+        border-left: 1px solid #ccc
+        padding-left: 10px
+    nav
+      +flexboxItem
+      font-size: 11px
+      .navItems
+        transition: background-color .1s, border-color .1s
+        display: inline-block
+        .navItem
+          border-radius: 2px
+          text-decoration: none
+          padding: 10px 20px
+          display: inline-block
+          color: #4D4D4D
+          margin-right: 10px
+          &:last-child
+            margin-right: 20px
+          &:hover
+            background: #efefef
+          &.active
+            background: #92af88
+            color: white
+      .buttonGroup
+        display: inline-block
+        .button
+          text-transform: uppercase
+          font-size: 11px
+        .button.login:hover
+          color: white
+          background: $ctaNormal
+          border-color: $ctaNormalDark
+        .button.logout:hover
+          background: $ctaDark
+          border-color: $ctaDarkDark
+
+section
+  background: $background-color
+  padding: 40px 0
+  .calendar
+    margin-top: 60px
+  .workouts
+    .action
+      height: 60px
+      text-align: right
+    .card
+      .workoutItem + .workoutItem
+        border-top: 1px solid $lightUI-borderDark
+      .workoutName
+        margin: 0 0 10px 0
+        padding: 10px 0
+        &:before
+          content: "C"
+          background: #ccc
+          margin-right: 10px
+          +border-radius(4px)
+          display: inline-block
+          vertical-align: middle
+          padding: 10px 12px
+          color: white
+          font-size: 12px
+          font-weight: 100
+      .exercises
+
+        .exerciseItem
+          margin: 10px 0
+          p
+            margin: 0
+          +flexbox
+          .exerciseName
+            width: 50%
+            +flexboxItem
+          .exerciseMeta
+            width: 50%
+            +flexboxItem
+      &:target
+        border-color: #4695be
+  footer
+    background: white
+    padding: 20px 0
+    a
+      display: block
