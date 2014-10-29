@@ -1,0 +1,10 @@
+include ../partials/header
+section
+  .row
+    .col-1
+      form(method='POST')
+        legend Forgot Password
+        .form-group
+          label(for='email') New password
+          input.form-control(type='password', name='password', autofocus)
+        button.btn.btn-primary(type='submit') Reset Password

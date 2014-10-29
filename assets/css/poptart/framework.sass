@@ -8,6 +8,7 @@
 
 @import "./components/_buttons";
 @import "./components/_cards";
+@import "./templates/_errorPages";
 
 body.poptart
   font-size: $font-size
@@ -64,11 +65,48 @@ body.poptart
           background: $ctaDark
           border-color: $ctaDarkDark
 
-section
-  background: $background-color
-  padding: 40px 0
-  .calendar
+  section
+    background: $background-color
+    padding: 40px 0
+  .card.calendar
     margin-top: 60px
+    .cardContent
+      padding: 0
+    .days
+
+      text-transform: uppercase
+      background: #dde3e3
+      border-bottom: 1px solid $lightUI-borderDark
+    [class*='col-']
+      +flexboxItemStretch
+      border-right: 1px solid $lightUI-borderDark
+      padding: 0 10px
+      font-size: 10px
+      &:last-of-type
+        border: none
+    .dates
+      +flexboxStretch
+      p
+        margin: 15px 0 20px 0
+      .workoutMarker
+        display: block
+        +border-radius(7px)
+        height: 10px
+        background: #333
+        margin-bottom: 10px
+        &:last-of-type
+          margin-bottom: 25px
+      .workoutMarker1
+        background-color: #be4646
+      .workoutMarker2
+        background-color: #67a2b6
+      .workoutMarker3
+        background-color: #b667b3
+      .workoutMarker4
+        background-color: #d78f54
+      .workoutMarker5
+        background-color: #48639e
+
   .workouts
     .action
       height: 60px
@@ -76,6 +114,8 @@ section
     .card
       .workoutItem + .workoutItem
         border-top: 1px solid $lightUI-borderDark
+
+
       .workoutName
         margin: 0 0 10px 0
         padding: 10px 0
@@ -86,10 +126,31 @@ section
           +border-radius(4px)
           display: inline-block
           vertical-align: middle
-          padding: 10px 12px
+          padding: 10px 15px
           color: white
           font-size: 12px
           font-weight: 100
+      .workoutItem
+        &.workoutType1
+          .workoutName
+            &:before
+              background: #be4646
+        &.workoutType2
+          .workoutName
+            &:before
+              background: #67a2b6
+        &.workoutType3
+          .workoutName
+            &:before
+              background: #b667b3
+        &.workoutType4
+          .workoutName
+            &:before
+              background: #d78f54
+        &.workoutType5
+          .workoutName
+            &:before
+              background: #48639e
       .exercises
 
         .exerciseItem

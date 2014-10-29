@@ -10,28 +10,42 @@ module.exports = function (sequelize, DataTypes){
         unique: true,
         allowNull: false,
         validate: {
-          len: [6, 30]
+          len: [3, 30]
         }
     },
-    password: DataTypes.STRING
+    weight: DataTypes.INTEGER,
+    height: DataTypes.INTEGER,
+    gender: DataTypes.STRING,
+    email: DataTypes.STRING,
+    resetPasswordToken: DataTypes.STRING,
+    resetPasswordExpires: DataTypes.DATE,
+    workoutPublic: DataTypes.BOOLEAN,
+    password: DataTypes.STRING,
     },
 
   {
     classMethods: {
+      associate: function(models){
+        User.hasMany(models.Workout);
+      },
+
       encryptPass: function(password) {
         var hash = bcrypt.hashSync(password, salt);
         return hash;
-    },
+      },
+
       comparePass: function(userpass, dbpass) {
       // don't salt twice when you compare....watch out for this
         return bcrypt.compareSync(userpass, dbpass);
-    },
-      createNewUser:function(username, password, err, success ) {
+      },
+
+      createNewUser:function(username, password, email, err, success ) {
         if(password.length < 6) {
           err({message: "Password should be more than six characters"});
         }
         else{
         User.create({
+            email: email,
             username: username,
             password: this.encryptPass(password)
           }).done(function(error,user) {
@@ -86,8 +100,3 @@ module.exports = function (sequelize, DataTypes){
 
   return User;
 }; // close User function
-
-
-
-
-

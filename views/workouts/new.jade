@@ -1,0 +1,19 @@
+include ../partials/header
+section
+  .row
+    .col-1-2.colCentered
+      h1 Create a new workout
+      form(method="POST")
+        p
+          label(for="name") Name your workout
+        p
+          input(type="text" id="name" name="name" placeholder="name")
+
+        p
+          label(for="day") First day
+        p
+          input(type="text" id="day" name="day" placeholder="day")
+        p
+          input(type='submit' value='create workout' class='button buttonLrg')
+
+include ../partials/footer

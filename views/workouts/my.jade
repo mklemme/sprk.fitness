@@ -1,0 +1,39 @@
+//- include ../partials/header
+//- section
+//-   .row
+//-     .col-1-2.colCentered
+//-       h1 My workouts
+//-       .workouts
+//-         each item in workouts
+//-           p= item.name
+//-           p= item.day
+//-           p= item.globalid
+//-           a(href='/my/workout/' + item.globalid) permalink
+//-
+//-
+//- include ../partials/footer
+include ../partials/header
+if workouts.length > 1
+  include parts/workouts
+else
+  include parts/noWorkouts
+//-
+//-
+//- each item in workouts
+//- if item.name
+//-
+//- else
+//-   include parts/noWorkouts
+
+include ../partials/footer
+//- a.button
+//-   Normal button
+//- a.button.buttonLrg
+//-   Large button
+//- .container
+//-   include partials/flash
+//-   block content
+//-
+//- include partials/footer
+//-
+//- != js('application')

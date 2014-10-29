@@ -2,8 +2,11 @@ include ../partials/header
 section
   .row
     .col-1-2.colCentered
-      h1 Homepage
-      if user
-        p Hello! You are logged in. 
+      h1= workout.name
+      .workouts
+
+          p= workout.name
+          p= workout.day
+
 
 include ../partials/footer

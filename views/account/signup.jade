@@ -1,0 +1,13 @@
+include ../partials/header
+section
+  .row
+    .col-1-2.colCentered
+      form(method='post' action='/signup')
+        p
+          input(type='text' name='username' placeholder='username' autofocus)
+        p
+          input(type='password' name='password' placeholder='password')
+        p
+          input(type='email' name='email' placeholder='email')
+        p
+          input(type='submit' value='signup')

@@ -1,0 +1,16 @@
+include ../partials/header
+section
+  .row
+    .col-1-2.colCentered
+      h1 Dashboard
+      
+      p
+        != user.email
+      p
+        != user.name
+      p
+        != user.username
+      p
+        a.button.buttonLrg.buttonDark(href='/workouts/new') add new workout
+
+include ../partials/footer

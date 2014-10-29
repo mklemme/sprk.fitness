@@ -36,4 +36,54 @@
         border-color: #4695be
         a
           color: #93b0bd
-// Card group
+
+  .cardGroup
+    display: -webkit-box
+    display: -moz-box
+    display: -ms-flexbox
+    display: -webkit-flex
+    display: flex
+    -webkit-box-direction: normal
+    -moz-box-direction: normal
+    -webkit-box-orient: horizontal
+    -moz-box-orient: horizontal
+    -webkit-flex-direction: row
+    -ms-flex-direction: row
+    flex-direction: row
+    -webkit-flex-wrap: wrap
+    -ms-flex-wrap: wrap
+    flex-wrap: wrap
+    -webkit-box-pack: start
+    -moz-box-pack: start
+    -webkit-justify-content: flex-start
+    -ms-flex-pack: start
+    justify-content: flex-start
+    -webkit-align-content: stretch
+    -ms-flex-line-pack: stretch
+    align-content: stretch
+    -webkit-box-align: start
+    -moz-box-align: start
+    -webkit-align-items: flex-start
+    -ms-flex-align: start
+    align-items: flex-start
+    .card
+      -webkit-box-ordinal-group: 1
+      -moz-box-ordinal-group: 1
+      -webkit-order: 0
+      -ms-flex-order: 0
+      order: 0
+      -webkit-box-flex: 1
+      -moz-box-flex: 1
+      -webkit-flex: 1 1 auto
+      -ms-flex: 1 1 auto
+      flex: 1 1 auto
+      -webkit-align-self: stretch
+      -ms-flex-item-align: stretch
+      align-self: stretch
+      text-align: center;
+      padding: 100px 0;
+      &:first-child
+        +border-radius(4px 0 0 4px)
+      &:last-child
+        +border-radius(0 4px 4px 0)
+        margin-left: -1px

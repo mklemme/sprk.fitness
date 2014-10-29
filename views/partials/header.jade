@@ -27,5 +27,10 @@ html
 
         // This is where the login logic goes for swapping out buttons if loggedin
         .buttonGroup
-          a.button.buttonLrg.login(href='/login') Login
-          a.button.buttonLrg.logout(href='/signup') Create Account
+          if user
+            a.button.buttonLrg.login(href='/my/dashboard') Dashboard
+            a.button.buttonLrg.logout(href='/logout') Logout
+          else
+            a.button.buttonLrg.login(href='/login') Login
+            a.button.buttonLrg.logout(href='/signup') Create Account
+    include messages
