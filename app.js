@@ -16,11 +16,11 @@ var express = require("express"),
   var mandrill = require('node-mandrill')('<Your Api Key Here>');
   var mandrill = require('mandrill-api/mandrill');
   var mandrill_client = new mandrill.Mandrill('7TX3d0ISNLN7009IbGFXbQ');
-
+  var Qs = require('qs');
 
 app.set('view engine', 'jade');
 app.use(morgan('dev'));
-app.use(bodyParser.urlencoded({extended: false}) );
+app.use(bodyParser.urlencoded({extended: true}) );
 
 app.use(session( {
   secret: 'hsadi&*919HIUhdakjshd8&',
@@ -83,7 +83,6 @@ app.get('/workouts/new', passportConf.isAuthenticated, workoutController.new);
 app.post('/workouts/new', passportConf.isAuthenticated, workoutController.newAction);
 app.get('/workout/:id', workoutController.singlePublic); // public workout
 app.get('/my/workout/:id', passportConf.isAuthenticated, workoutController.single); // user's view of workout
-
 
 // ==========
 //

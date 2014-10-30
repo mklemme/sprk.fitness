@@ -38,18 +38,12 @@ exports.contact = function(req, res) {
 };
 
 exports.login = function(req, res) {
-  if(req.user){
-    res.redirect('/my/dashboard', {
-      title: "Home",
-      user: req.user
-    })
-  }
-  else{
-    res.render("account/login", {
-      title: "Home",
-      user: req.user
-    })
-  }
+
+  res.render("account/login", {
+    title: "Home",
+    user: req.user
+  })
+
 };
 
 exports.loginAction = passport.authenticate('local', {
@@ -80,9 +74,9 @@ exports.signup = function(req, res) {
 exports.signupAction = function(req, res) {
   db.User.createNewUser(req.body.username, req.body.password, req.body.email,
     function(err){
-      res.render("account/signup", {message: err.message, username: req.body.username});
+      res.render("account/signup");
     },
     function(success){
-      res.redirect("/my/dashboard", {message: success.message});
+    res.redirect("/my/dashboard");
   });
 };

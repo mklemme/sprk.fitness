@@ -25,13 +25,14 @@ exports.forgot = function(req, res) {
 };
 
 exports.workouts = function(req, res) {
-  req.user.getWorkouts().done(function(err,workouts){
-    res.render('workouts/my', {
-      title: 'My workouts',
-      user: req.user,
+  var user = req.user
+  user.getWorkouts().done(function(error, workouts){
+    res.render("workouts/my", {
+      title: "My workouts",
       workouts: workouts
-    });
+    })
   })
+
 };
 
 

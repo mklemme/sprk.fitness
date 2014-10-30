@@ -2,12 +2,13 @@
 
 module.exports = function(sequelize, DataTypes) {
   var Exercise = sequelize.define("Exercise", {
-    name: DataTypes.STRING
+    name: DataTypes.STRING,
+    sets: DataTypes.STRING
   }, {
     classMethods: {
       associate: function(models) {
         // associations can be defined here
-        Exercises.belongsTo(models.Workout);
+        Exercise.belongsTo(models.Workout);
       }
     }
   });

@@ -8,6 +8,8 @@
 
 @import "./components/_buttons";
 @import "./components/_cards";
+@import "./components/_box";
+
 @import "./templates/_errorPages";
 
 body.poptart
@@ -64,6 +66,10 @@ body.poptart
         .button.logout:hover
           background: $ctaDark
           border-color: $ctaDarkDark
+  hr
+    border: none
+    background: none
+    border-top: 1px solid $lightUI-borderLight
 
   section
     background: $background-color
@@ -152,7 +158,6 @@ body.poptart
             &:before
               background: #48639e
       .exercises
-
         .exerciseItem
           margin: 10px 0
           p
@@ -166,8 +171,13 @@ body.poptart
             +flexboxItem
       &:target
         border-color: #4695be
+  
   footer
     background: white
     padding: 20px 0
     a
       display: block
+  .hidden
+    display: none
+    height: 0
+    width: 0

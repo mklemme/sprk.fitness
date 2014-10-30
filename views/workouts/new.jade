@@ -1,19 +1,30 @@
 include ../partials/header
-section
+section.exercisePage
   .row
     .col-1-2.colCentered
       h1 Create a new workout
-      form(method="POST")
+      hr
+      form(method="POST" action="/workouts/new").boxForm
         p
           label(for="name") Name your workout
         p
-          input(type="text" id="name" name="name" placeholder="name")
+          input(type="text" id="name" name="workout[name]" placeholder="name" value="Chest Day")
+        .exercises
 
         p
-          label(for="day") First day
-        p
-          input(type="text" id="day" name="day" placeholder="day")
-        p
-          input(type='submit' value='create workout' class='button buttonLrg')
+          input(type='submit' value='Save workout' class='button buttonDark')
+          a(href='').button.buttonAction.addExercise Add another exercise
+.hidden
+  .box.exerciseItem#ex
+    .boxHeader Exercise #1
+    .boxContent
+      .row
+        .col-1-2
+          label(for='workoutName') Exercise name
+        .col-1-2
+          input(type="text" id="workoutName" name="exerciseInfo[exercise1][name]" placeholder="name" value="Bench Press")
+    .boxAddon.formActions
+      a(href="#remove").button.buttonDestroy.addSet Remove exercise
+      a(href="").button.buttonAction.addSet Add a set
 
 include ../partials/footer

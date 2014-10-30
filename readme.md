@@ -12,6 +12,6 @@
 - api creation
 
 
-// ui
-Add form styling
-add button default classes
+#### need help on:
+- Querying `workouts.getExercises` and passing both workouts and each of their exercises to the view
+- how to add nested objects and add them to the database

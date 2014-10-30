@@ -1,0 +1,96 @@
+.poptart
+  .box
+    .boxHeader
+      padding: 10px
+      font-size: 10px
+      color: #333
+      background: white
+      border: 1px solid $lightUI-borderDark
+    .boxContent
+      background: white
+      border: 1px solid $lightUI-borderDark
+      margin-top: -1px
+      .row
+        padding: 20px
+      .row + .row
+        border-top: 1px solid $lightUI-borderLight
+
+    .boxAddon
+      margin-top: -1px
+      padding: 15px
+      font-size: 10px
+      color: #333
+      background: white
+      border: 1px solid $lightUI-borderDark
+      text-align: center
+      a
+        color:#ecf6e8
+        span
+          color: white
+      &.formActions
+        text-align: right
+        a
+          margin-left: 10px
+    .boxAddonColorUI
+      background: #a1b29c
+      border: 1px solid #788574
+      a
+        color: $lightUI-borderLight
+        span
+          color: $lightUI-borderDark
+
+
+  .boxForm
+    .row
+      +flexbox
+      padding: 5px 0
+    label
+      text-transform: uppercase
+      color: #a3a2a2
+      font-weight: 100
+      font-size: 11px
+    input:not([type=submit])
+      +flexboxItem
+      width: 100%
+      margin: 0
+      padding: 15px 10px
+      border: 1px solid #a6bbd2
+      background: #e3ecf6
+      color: #a6bbd2
+      +border-radius(4px)
+      &::-webkit-input-placeholder
+        color: #606d7a
+      &:-moz-placeholder
+        color: #606d7a
+      &::-moz-placeholder
+        color: #606d7a
+      &:-ms-input-placeholder
+        color: #606d7a
+      &:focus
+        outline: none
+        z-index: 1
+        border-color: #a6bbd2
+        background: #e3ecf6
+        color: #a6bbd2
+        &::-webkit-input-placeholder
+          color: #606d7a
+        &:-moz-placeholder
+          color: #606d7a
+        &::-moz-placeholder
+          color: #606d7a
+        &:-ms-input-placeholder
+          color: #606d7a
+    .inputGroup
+      input
+        z-index:0
+        &:first-child
+          +border-radius(4px 4px 0 0)
+        &:last-child
+          +border-radius(0 0 4px 4px)
+          margin-top: -1px
+
+  .boxFormStacked
+    input
+      display:block
+.boxLogin
+  .boxCotent

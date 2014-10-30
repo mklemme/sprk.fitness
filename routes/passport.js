@@ -6,12 +6,12 @@ var db = require('../models/index');
 
 // prepare our serialize functions
 passport.serializeUser(function(user, done){
-  console.log("SERIALIZED JUST RAN!");
+  //console.log("SERIALIZED JUST RAN!");
   done(null, user.id);
 });
 
 passport.deserializeUser(function(id, done){
-  console.log("DESERIALIZED JUST RAN!");
+  //console.log("DESERIALIZED JUST RAN!");
   db.User.find({
       where: {
         id: id
@@ -30,5 +30,14 @@ exports.isAuthenticated = function(req, res, next) {
   }
   else {
    return next();
+  }
+};
+
+exports.loggedIn = function(req, res, next) {
+  if (req.user) {
+    res.redirect('/login');
+  }
+  else {
+    return next();
   }
 };

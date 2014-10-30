@@ -11,11 +11,11 @@ module.exports = {
       name: {
         type: DataTypes.STRING
       },
-      WorkoutID: {
+      WorkoutId: {
         type: DataTypes.INTEGER
       },
       sets:{
-        type: DataTypes.ARRAY(DataTypes.TEXT)
+        type: DataTypes.STRING
       },
       createdAt: {
         allowNull: false,
