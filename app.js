@@ -15,12 +15,15 @@ var express = require("express"),
   var smtpTransport = require('nodemailer-smtp-transport');
   var mandrill = require('node-mandrill')('<Your Api Key Here>');
   var mandrill = require('mandrill-api/mandrill');
-  var mandrill_client = new mandrill.Mandrill('7TX3d0ISNLN7009IbGFXbQ');
+  var mandrill_client = new mandrill.Mandrill(process.env.MANDRILL_API);
   var Qs = require('qs');
+
+
 
 app.set('view engine', 'jade');
 app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({extended: true}) );
+app.use(express.static(__dirname + '/public'));
 
 app.use(session( {
   secret: 'hsadi&*919HIUhdakjshd8&',
