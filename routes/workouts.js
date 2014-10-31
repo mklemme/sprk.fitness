@@ -25,7 +25,7 @@ exports.newAction = function(req, res) {
   // res.render("workouts/new");
   db.Workout.create({
     globalid: rack(),
-    name: req.body.name,
+    name: req.body.workout.name,
     UserId: req.user.id,
   }).done(function(err, workout){
     console.log("finished creating the workout");
@@ -67,11 +67,15 @@ exports.singlePublic = function(req, res) {
 exports.single = function(req, res) {
   db.Workout.find({
     where: {
-      id: req.params.id
+      globalid: req.params.id
     }
   }).done(function(err, workout){
-    res.render("workouts/single", {
-      workout: workout
+    workout.getExercises().done(function(err, exercises, workout){
+      res.render("workouts/single",{
+        workout: workout,
+        exercise: exercises,
+        title: "Workout info for: "+workout.name
+      })
     })
   })
 };

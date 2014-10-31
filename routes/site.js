@@ -5,7 +5,8 @@ var db = require("../models/index");
 exports.index = function(req, res) {
   res.render("global/index", {
     title: "Home",
-    user: req.user
+    user: req.user,
+    bodyClass: "home"
   })
 };
 
@@ -77,6 +78,7 @@ exports.signupAction = function(req, res) {
       res.render("account/signup");
     },
     function(success){
+
     res.redirect("/my/dashboard");
   });
 };

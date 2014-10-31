@@ -10,7 +10,6 @@ section.exercisePage
         p
           input(type="text" id="name" name="workout[name]" placeholder="name" value="Chest Day")
         .exercises
-
         p
           input(type='submit' value='Save workout' class='button buttonDark')
           a(href='').button.buttonAction.addExercise Add another exercise
@@ -24,7 +23,7 @@ section.exercisePage
         .col-1-2
           input(type="text" id="workoutName" name="exerciseInfo[exercise1][name]" placeholder="name" value="Bench Press")
     .boxAddon.formActions
-      a(href="#remove").button.buttonDestroy.addSet Remove exercise
+      a(href="#remove").button.buttonDestroy.removeExercise Remove exercise
       a(href="").button.buttonAction.addSet Add a set
 
 include ../partials/footer

@@ -1,19 +1,25 @@
-// In mandrill_wrapper.js
-module.exports = (function() {
-    var mandrill = require('mandrill-api/mandrill')('7TX3d0ISNLN7009IbGFXbQ'),
-        self = {};
+var mandrill = require('mandrill-api/mandrill');
+var mandrill_client = new mandrill.Mandrill('7TX3d0ISNLN7009IbGFXbQ');
 
-    self.send = function(fromEmail, to, subject, text) {
+module.exports.welcome = (function(user, callback) {
+        self = {};
+        console.log("sending mail");
+    self.send = function(user, callback, err) {
         var message = {
             "html": null,
-            "text": text,
-            "subject": subject,
-            "from_email": fromEmail,
-            "from_name": fromName,
-            "to": to,
-            "headers": {
-                "Reply-To": replyToEmail
-            },
+            "text": 'Hi '+ user.username +'\n\n'+
+                    'Just wanted to let you know that your password has been sucessfully changed.\n'+
+                    'Go ahead and login with your new account information!\n\n'+
+                    'Thanks,\n'+
+                    'The Sprk Team',
+            "subject": "Password Reset successful",
+            "from_email": "mykklemme@gmail.com",
+            "from_name": "Myk Klemme",
+            "to": [{
+                    "email": user.email,
+                    "name": user.username,
+                    "type": "to"
+                }],
             "important": false,
             "track_opens": null,
             "track_clicks": null,
@@ -42,9 +48,10 @@ module.exports = (function() {
 
         mandrill_client.messages.send({"message": message, "async": async, "ip_pool": ip_pool, "send_at": send_at}, function(result) {
             console.log('Mandrill API called.');
-            console.log(result);
+            callback(err, 'done');
         }, function(e) {
             console.error('A mandrill error occurred: ' + e.name + ' - ' + e.message);
+            callback(e);
         });
     };
 

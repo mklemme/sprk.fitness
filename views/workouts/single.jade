@@ -4,9 +4,11 @@ section
     .col-1-2.colCentered
       h1= workout.name
       .workouts
+        p= workout.name
+        p= workout.day
 
-          p= workout.name
-          p= workout.day
+        //- each item in exercise
+          //- p=item.name
 
 
 include ../partials/footer

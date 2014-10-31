@@ -21,49 +21,47 @@ module.exports = function (sequelize, DataTypes){
     resetPasswordExpires: DataTypes.DATE,
     workoutPublic: DataTypes.BOOLEAN,
     password: DataTypes.STRING,
-    },
+    }, {
+      classMethods: {
+        associate: function(models){
+          User.hasMany(models.Workout);
+        },
 
-  {
-    classMethods: {
-      associate: function(models){
-        User.hasMany(models.Workout);
-      },
+        encryptPass: function(password) {
+          var hash = bcrypt.hashSync(password, salt);
+          return hash;
+        },
 
-      encryptPass: function(password) {
-        var hash = bcrypt.hashSync(password, salt);
-        return hash;
-      },
+        comparePass: function(userpass, dbpass) {
+        // don't salt twice when you compare....watch out for this
+          return bcrypt.compareSync(userpass, dbpass);
+        },
 
-      comparePass: function(userpass, dbpass) {
-      // don't salt twice when you compare....watch out for this
-        return bcrypt.compareSync(userpass, dbpass);
-      },
-
-      createNewUser:function(username, password, email, err, success ) {
-        if(password.length < 6) {
-          err({message: "Password should be more than six characters"});
-        }
-        else{
-        User.create({
-            email: email,
-            username: username,
-            password: this.encryptPass(password)
-          }).done(function(error,user) {
-            if(error) {
-              console.log(error)
-              if(error.name === 'SequelizeValidationError'){
-              err({message: 'Your username should be at least 6 characters long', username: username});
-            }
-              else if(error.name === 'SequelizeUniqueConstraintError') {
-              err({message: 'An account with that username already exists', username: username});
+        createNewUser:function(username, password, email, err, success ) {
+          if(password.length < 6) {
+            err({message: "Password should be more than six characters"});
+          }
+          else{
+          User.create({
+              email: email,
+              username: username,
+              password: this.encryptPass(password)
+            }).done(function(error,user) {
+              if(error) {
+                console.log(error)
+                if(error.name === 'SequelizeValidationError'){
+                err({message: 'Your username should be at least 6 characters long', username: username});
               }
-            }
-            else{
-              success({message: 'Account created, please log in now'});
-            }
-          });
-        }
-      },
+                else if(error.name === 'SequelizeUniqueConstraintError') {
+                err({message: 'An account with that username already exists', username: username});
+                }
+              }
+              else{
+                success({message: 'Account created, please log in now'});
+              }
+            });
+          }
+        },
       } // close classMethods
     } //close classMethods outer
 

@@ -84,14 +84,7 @@ app.post('/workouts/new', passportConf.isAuthenticated, workoutController.newAct
 app.get('/workout/:id', workoutController.singlePublic); // public workout
 app.get('/my/workout/:id', passportConf.isAuthenticated, workoutController.single); // user's view of workout
 
-// ==========
-//
-// 404: YOU FUCKED UP!
-//
-app.get('*', function(req,res){
-  res.status(404);
-  res.render('error/404');
-});
+
 
 
 
@@ -270,7 +263,14 @@ app.post('/forgot', function(req, res) {
   });
 });
 
-
+// ==========
+//
+// 404: YOU FUCKED UP!
+//
+app.get('*', function(req,res){
+  res.status(404);
+  res.render('error/404');
+});
 
 
 app.listen(3000, function(){

@@ -42,7 +42,11 @@ section
               span.workoutMarker.workoutMarker4
             .col-1-7
               p 27
-
+      .links
+        each item in workouts
+          p= item.name
+          p= item.globalid
+          a(href='/my/workout/' + item.globalid) permalink
     .col-1-2.workouts
       .action
         a.button.buttonLrg(href='/workouts/new').buttonDark Create new workout
