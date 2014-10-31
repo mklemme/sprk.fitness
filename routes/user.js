@@ -29,7 +29,8 @@ exports.workouts = function(req, res) {
   user.getWorkouts().done(function(error, workouts){
     res.render("workouts/my", {
       title: "My workouts",
-      workouts: workouts
+      workouts: workouts,
+      user: req.user
     })
   })
 
