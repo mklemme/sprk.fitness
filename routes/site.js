@@ -17,6 +17,13 @@ exports.about = function(req, res) {
   })
 };
 
+exports.grid = function(req, res) {
+  res.render("global/grid", {
+    title: "Sprk is",
+    user: req.user
+  })
+};
+
 exports.features = function(req, res) {
   res.render("global/features", {
     title: "Home",

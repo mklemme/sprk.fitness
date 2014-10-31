@@ -59,6 +59,7 @@ var workoutController = require('./routes/workouts');
 //
 app.get('/', siteController.index); // home
 app.get('/is', siteController.about); // about page
+app.get('/grid', siteController.grid);
 app.get('/has', siteController.features); // features page
 app.get('/has/style', siteController.featuresStyle); // style guide
 app.get('/contact', siteController.contact); // contact us
