@@ -32,7 +32,7 @@
     "passport-local": "^1.0.0",
     "path": "^0.4.9",
     "pg": "^3.6.2",
-    "qs": "^2.3.2",
+    "qs": "^6.9.3",
     "sendgrid": "^1.2.2",
     "sequelize": "^2.0.0-rc2",
     "sequelize-cli": "^0.3.3"
