@@ -34,7 +34,7 @@
     "pg": "^3.6.2",
     "qs": "^2.3.2",
     "sendgrid": "^1.2.2",
-    "sequelize": "^2.0.0-rc2",
+    "sequelize": "^6.3.5",
     "sequelize-cli": "^0.3.3"
   },
   "devDependencies": {
